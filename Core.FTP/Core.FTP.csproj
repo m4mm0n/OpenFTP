@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{FAD79BEC-AE07-4989-BBB1-BF5707E5D799}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>OpenFTP</RootNamespace>
-    <AssemblyName>OpenFTP</AssemblyName>
+    <ProjectGuid>{57D27D99-C773-4C1A-AAD7-6A955331FCF6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Core.FTP</RootNamespace>
+    <AssemblyName>Core.FTP</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,9 +20,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,8 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,24 +41,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Client\FTPClient.cs" />
+    <Compile Include="Client\Stream\DataStream.cs" />
+    <Compile Include="Client\Stream\SocketStream.cs" />
+    <Compile Include="Client\Stream\SslStreamEx.cs" />
+    <Compile Include="Helpers\ActionEventArgs.cs" />
+    <Compile Include="Helpers\ActionReply.cs" />
+    <Compile Include="Helpers\BinaryMode.cs" />
+    <Compile Include="Helpers\ConnectionDetails.cs" />
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Helpers\SecurityNotAvailableException.cs" />
+    <Compile Include="Helpers\ServerCapabilities.cs" />
+    <Compile Include="Helpers\ServerHashAlgorithm.cs" />
+    <Compile Include="Helpers\UserDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <Folder Include="Server\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\Core.Utils\Core.Utils.csproj">
+      <Project>{3995301c-9e01-43c3-b4a8-e584f38326f2}</Project>
+      <Name>Core.Utils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OpenLogger\OpenLogger.csproj">
       <Project>{8d2638db-d3eb-4784-af2b-3a2d9e0e7f80}</Project>
       <Name>OpenLogger</Name>

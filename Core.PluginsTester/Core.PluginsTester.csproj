@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BF4F9B88-2DCD-49A6-96B9-EF869F8D7177}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Core.PluginsTester</RootNamespace>
+    <AssemblyName>Core.PluginsTester</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\frmExplorerTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmExplorerTest.Designer.cs">
+      <DependentUpon>frmExplorerTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFtpClientTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFtpClientTest.Designer.cs">
+      <DependentUpon>frmFtpClientTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFtpConnectUploadDownloadTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFtpConnectUploadDownloadTest.Designer.cs">
+      <DependentUpon>frmFtpConnectUploadDownloadTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmFtpExplorerTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmFtpExplorerTest.Designer.cs">
+      <DependentUpon>frmFtpExplorerTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmIconTester.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmIconTester.Designer.cs">
+      <DependentUpon>frmIconTester.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmPercentageBarTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmPercentageBarTest.Designer.cs">
+      <DependentUpon>frmPercentageBarTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmQueueListTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmQueueListTest.Designer.cs">
+      <DependentUpon>frmQueueListTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Utils\Core.Utils.csproj">
+      <Project>{3995301c-9e01-43c3-b4a8-e584f38326f2}</Project>
+      <Name>Core.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Explorator\Core.Explorator.csproj">
+      <Project>{554ea696-4a53-4da5-880d-81f85beafb22}</Project>
+      <Name>Core.Explorator</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\FluentFTP\FluentFTP.csproj">
+      <Project>{51701cdc-bf55-4274-822f-db87ae4bb2c6}</Project>
+      <Name>FluentFTP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OpenLogger\OpenLogger.csproj">
+      <Project>{8d2638db-d3eb-4784-af2b-3a2d9e0e7f80}</Project>
+      <Name>OpenLogger</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\frmExplorerTest.resx">
+      <DependentUpon>frmExplorerTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFtpClientTest.resx">
+      <DependentUpon>frmFtpClientTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFtpConnectUploadDownloadTest.resx">
+      <DependentUpon>frmFtpConnectUploadDownloadTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmFtpExplorerTest.resx">
+      <DependentUpon>frmFtpExplorerTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmIconTester.resx">
+      <DependentUpon>frmIconTester.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmPercentageBarTest.resx">
+      <DependentUpon>frmPercentageBarTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmQueueListTest.resx">
+      <DependentUpon>frmQueueListTest.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

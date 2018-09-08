@@ -8,8 +8,13 @@ namespace OpenFTP
 {
     class Program
     {
+        [STAThread]
         static void Main(string[] args)
         {
+            using (frmMain frm = new frmMain())
+            {
+                frm.ShowDialog();
+            }
         }
     }
 }
